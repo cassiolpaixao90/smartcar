@@ -19,8 +19,13 @@ android {
     }
 }
 
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:design:25.3.1'
     compile 'com.github.erz05:JoyStick:1.1.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile files('libs/AmarinoLibrary_v0_55.jar');
 }

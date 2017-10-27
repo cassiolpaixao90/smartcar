@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,23 +10,83 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-
     <com.erz.joysticklibrary.JoyStick
         android:id="@+id/joy1"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_gravity="bottom"/>
+        android:layout_width="254dp"
+        android:layout_height="226dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="12dp" />
+
 
     <com.erz.joysticklibrary.JoyStick
         android:id="@+id/joy2"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_gravity="bottom|right"/>
+        android:layout_width="264dp"
+        android:layout_height="226dp"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="50dp" />
 
     <Button
-        android:id="@+id/button2"
+        android:onClick="btnR1"
+        android:id="@+id/btn_r1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        android:text="R1" />
+
+
+    <Button
+        android:onClick="btnL1"
+        android:id="@+id/btn_l1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="520dp"
+        android:layout_marginTop="15dp"
+        android:text="L1" />
+
+    <Button
+        android:onClick="btnA"
+        android:id="@+id/btn_a"
+        android:layout_width="42dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="365dp"
+        android:layout_marginTop="160dp"
+        android:text="A" />
+
+    <Button
+        android:onClick="btnB"
+        android:id="@+id/btn_b"
+        android:layout_width="42dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="415dp"
+        android:layout_marginTop="100dp"
+        android:text="B" />
+
+    <Button
+        android:onClick="btnX"
+        android:id="@+id/btn_x"
+        android:layout_width="42dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="485dp"
+        android:layout_marginTop="80dp"
+        android:text="X" />
+
+    <Button
+        android:onClick="btnY"
+        android:id="@+id/btn_y"
+        android:layout_width="42dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="560dp"
+        android:layout_marginTop="100dp"
+        android:text="Y" />
+
+    <Button
+        android:onClick="btnPower"
+        android:id="@+id/btn_power"
+        android:layout_width="99dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="270dp"
+        android:layout_marginTop="2dp" />
 
 </FrameLayout>
