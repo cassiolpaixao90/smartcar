@@ -8,6 +8,8 @@ import android.view.View;
 
 import com.erz.joysticklibrary.JoyStick;
 
+import java.util.Arrays;
+
 import at.abraxas.amarino.Amarino;
 import br.com.cesaredu.smartcar.R;
 import br.com.cesaredu.smartcar.broadcasts.AmarinoReceiver;
@@ -69,11 +71,11 @@ public class MainActivity extends AppCompatActivity implements JoyStick.JoyStick
     }
 
     public void btnR1(View view) {
-
+        Amarino.sendDataToArduino(getApplicationContext(), FlagsUtil.BLUETOOTH_MAC_ADDRESS, FlagsUtil.R1, FlagsUtil.R1);
     }
 
     public void btnL1(View view) {
-
+        Amarino.sendDataToArduino(getApplicationContext(), FlagsUtil.BLUETOOTH_MAC_ADDRESS, FlagsUtil.L1, FlagsUtil.L1);
     }
 
     public void btnPower(View view) {
@@ -81,19 +83,19 @@ public class MainActivity extends AppCompatActivity implements JoyStick.JoyStick
     }
 
     public void btnA(View view) {
-
+        Amarino.sendDataToArduino(getApplicationContext(), FlagsUtil.BLUETOOTH_MAC_ADDRESS, FlagsUtil.A, FlagsUtil.A);
     }
 
     public void btnB(View view) {
-
+        Amarino.sendDataToArduino(getApplicationContext(), FlagsUtil.BLUETOOTH_MAC_ADDRESS,FlagsUtil.B, FlagsUtil.B);
     }
 
     public void btnX(View view) {
-
+        Amarino.sendDataToArduino(getApplicationContext(), FlagsUtil.BLUETOOTH_MAC_ADDRESS, FlagsUtil.X, FlagsUtil.X);
     }
 
     public void btnY(View view) {
-
+        Amarino.sendDataToArduino(getApplicationContext(), FlagsUtil.BLUETOOTH_MAC_ADDRESS, FlagsUtil.Y, FlagsUtil.Y);
     }
 
     @Override
