@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements JoyStick.JoyStick
 
     private GameView gameView;
     private AmarinoReceiver amarinoReceiver;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,38 +68,44 @@ public class MainActivity extends AppCompatActivity implements JoyStick.JoyStick
         joyRotate.setButtonDrawable(R.drawable.button);
     }
 
-    public void btnR1(View view){
+    public void btnR1(View view) {
 
     }
-    public void btnL1(View view){
+
+    public void btnL1(View view) {
 
     }
-    public void btnPower(View view){
-        FlagsUtil.connect(getApplicationContext(), FlagsUtil.BLUETOOTH);
+
+    public void btnPower(View view) {
+        FlagsUtil.connect(getApplicationContext(), FlagsUtil.BLUETOOTH_MAC_ADDRESS);
     }
-    public void btnA(View view){
+
+    public void btnA(View view) {
 
     }
-    public void btnB(View view){
+
+    public void btnB(View view) {
 
     }
-    public void btnX(View view){
+
+    public void btnX(View view) {
 
     }
-    public void btnY(View view){
+
+    public void btnY(View view) {
 
     }
 
     @Override
     protected void onDestroy() {
-        if(amarinoReceiver != null){
+        if (amarinoReceiver != null) {
             unregisterReceiver(amarinoReceiver);
         }
-        FlagsUtil.desconnected(getApplicationContext(), FlagsUtil.BLUETOOTH);
+        FlagsUtil.desconnected(getApplicationContext(), FlagsUtil.BLUETOOTH_MAC_ADDRESS);
         super.onDestroy();
     }
 
-    public void getAmarinoReceiver(){
+    public void getAmarinoReceiver() {
         this.amarinoReceiver = new AmarinoReceiver();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(Intent.ACTION_POWER_CONNECTED);

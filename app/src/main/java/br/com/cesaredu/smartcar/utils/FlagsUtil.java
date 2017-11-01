@@ -16,7 +16,7 @@ public abstract class FlagsUtil {
     public static final String B = "B";
     public static final String X = "X";
     public static final String Y = "Y";
-    public static final String BLUETOOTH = "";
+    public static final String BLUETOOTH_MAC_ADDRESS = "";
 
 
     public static void connect(Context context, String bluetooth){
