@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <com.erz.joysticklibrary.JoyStick
+    <br.com.cesaredu.smartcar.utils.JoyStick
         android:id="@+id/joy1"
         android:layout_width="254dp"
         android:layout_height="226dp"
@@ -18,23 +18,23 @@
         android:layout_marginBottom="12dp" />
 
     <Button
-        android:id="@+id/btn_r1"
+        android:id="@+id/btn_l1"
         android:layout_width="95dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/shape"
-        android:text="@string/R1"
+        android:text="@string/L1"
         android:textColor="@color/white" />
 
     <Button
-        android:id="@+id/btn_l1"
+        android:id="@+id/btn_r1"
         android:layout_width="95dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="520dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/shape"
-        android:text="@string/L1"
+        android:text="@string/R1"
         android:textColor="@color/white" />
 
     <TextView
@@ -95,7 +95,7 @@
         android:layout_marginTop="0dp"
         android:background="@drawable/shape" />
 
-    <com.erz.joysticklibrary.JoyStick
+    <br.com.cesaredu.smartcar.utils.JoyStick
         android:id="@+id/joy2"
         android:layout_width="264dp"
         android:layout_height="226dp"

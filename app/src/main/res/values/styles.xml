@@ -1,5 +1,12 @@
 <resources>
-
+    <declare-styleable name="JoyStick">
+        <attr name="padColor" format="color" />
+        <attr name="buttonColor" format="color" />
+        <attr name="stayPut" format="boolean" />
+        <attr name="percentage" format="integer" />
+        <attr name="backgroundDrawable" format="reference" />
+        <attr name="buttonDrawable" format="reference" />
+    </declare-styleable>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
