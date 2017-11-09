@@ -6,6 +6,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 
+import br.com.cesaredu.smartcar.broadcasts.AmarinoReceiver;
+import br.com.cesaredu.smartcar.utils.FlagsUtil;
 import br.com.cesaredu.smartcar.utils.JoyStick;
 
 import at.abraxas.amarino.Amarino;
@@ -14,12 +16,13 @@ import br.com.cesaredu.smartcar.R;
 /**
  * Created by CassioPaixao on 25/10/2017.
  */
-public class MainActivity extends AppCompatActivity implements JoyStick.JoyStickListener, View.OnTouchListener {
+public class MainActivity extends AppCompatActivity implements JoyStick.JoyStickListener, View.OnTouchListener, AmarinoReceiver.DistanceListener {
     public static final String BLUETOOTH_MAC_ADDRESS = "20:16:10:24:30:84";
     private TextView textView;
+    private boolean togglePower = false;
     private int speed = 0;
     private int direction = -1;
-    private  int servo_pos = 0;
+    private int servo_pos = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements JoyStick.JoyStick
         joyRotate.setButtonDrawable(R.drawable.button);
         joyRotate.setType(JoyStick.TYPE_2_AXIS_LEFT_RIGHT);
         joyRotate.enableStayPut(true);
+        AmarinoReceiver.setDistanceListener(this);
     }
 
     @Override
@@ -53,7 +57,6 @@ public class MainActivity extends AppCompatActivity implements JoyStick.JoyStick
             case R.id.joy1:
                 this.speed = speed;
                 this.direction = direction;
-                textView.setText("Velocidade: " + speed + "\nDirecao: " + direction);
                 break;
             case R.id.joy2:
                 this.servo_pos = speed;
@@ -62,33 +65,49 @@ public class MainActivity extends AppCompatActivity implements JoyStick.JoyStick
     }
 
     @Override
+    public void onDistanceReceived(int distance) {
+        textView.setText("Distância (cm): " + distance);
+    }
+
+    @Override
     public boolean onTouch(View v, MotionEvent event) {
         int action = event.getAction();
         if (action == MotionEvent.ACTION_DOWN) {
             switch(v.getId()) {
                 case R.id.btn_power:
-                    textView.setText("connecting...");
-                    Amarino.connect(getApplicationContext(), BLUETOOTH_MAC_ADDRESS);
+                    togglePower = !togglePower;
+                    if (togglePower) {
+                        textView.setText("connecting...");
+                        Amarino.connect(getApplicationContext(), BLUETOOTH_MAC_ADDRESS);
+                    } else {
+                        textView.setText("disconnecting...");
+                        Amarino.disconnect(getApplicationContext(), BLUETOOTH_MAC_ADDRESS);
+                    }
                     return true;
                 case R.id.btn_a:
-//                    textView.setText("acelerando");
-                    char flag = 'E';
+                    char flag = FlagsUtil.PARAR;
                     if (this.direction == JoyStick.DIRECTION_UP) {
-                        flag = 'A';
+                        flag = FlagsUtil.FRENTE;
                     } else if (this.direction == JoyStick.DIRECTION_DOWN) {
-                        flag = 'B';
+                        flag = FlagsUtil.TRAS;
                     } else if (this.direction == JoyStick.DIRECTION_RIGHT) {
-                        flag = 'C';
+                        flag = FlagsUtil.DIREITA;
                     } else if (this.direction == JoyStick.DIRECTION_LEFT) {
-                        flag = 'D';
+                        flag = FlagsUtil.ESQUERDA;
                     }
                     Amarino.sendDataToArduino(getApplicationContext(), BLUETOOTH_MAC_ADDRESS, flag, this.speed);
                     return true;
-                case R.id.btn_r1:
-                    Amarino.sendDataToArduino(getApplicationContext(), BLUETOOTH_MAC_ADDRESS, 'F', 1);
+                case R.id.btn_b:
+                    Amarino.sendDataToArduino(getApplicationContext(), BLUETOOTH_MAC_ADDRESS, FlagsUtil.DIST, 1);
                     return true;
                 case R.id.btn_l1:
-                    Amarino.sendDataToArduino(getApplicationContext(), BLUETOOTH_MAC_ADDRESS, 'G', 1);
+                    Amarino.sendDataToArduino(getApplicationContext(), BLUETOOTH_MAC_ADDRESS, FlagsUtil.LED_F, 1);
+                    return true;
+                case R.id.btn_r1:
+                    Amarino.sendDataToArduino(getApplicationContext(), BLUETOOTH_MAC_ADDRESS, FlagsUtil.LED_T, 1);
+                    return true;
+                case R.id.btn_x:
+                    Amarino.sendDataToArduino(getApplicationContext(), BLUETOOTH_MAC_ADDRESS, FlagsUtil.BUZ, 1);
                     return true;
                 case R.id.btn_y:
                     textView.setText("servo: " + this.servo_pos);
@@ -97,8 +116,10 @@ public class MainActivity extends AppCompatActivity implements JoyStick.JoyStick
         } else if (action == MotionEvent.ACTION_UP) {
             switch(v.getId()) {
                 case R.id.btn_a:
-//                    textView.setText("parou de acelerar");
-                    Amarino.sendDataToArduino(getApplicationContext(), BLUETOOTH_MAC_ADDRESS, 'E', 0);
+                    Amarino.sendDataToArduino(getApplicationContext(), BLUETOOTH_MAC_ADDRESS, FlagsUtil.PARAR, 0);
+                    return true;
+                case R.id.btn_x:
+                    Amarino.sendDataToArduino(getApplicationContext(), BLUETOOTH_MAC_ADDRESS, FlagsUtil.BUZ, 1);
                     return true;
             }
         }

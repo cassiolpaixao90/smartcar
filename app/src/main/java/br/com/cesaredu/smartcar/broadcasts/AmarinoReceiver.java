@@ -8,6 +8,15 @@ import android.widget.Toast;
 import at.abraxas.amarino.AmarinoIntent;
 
 public class AmarinoReceiver extends BroadcastReceiver {
+    private static DistanceListener listener = null;
+
+    public static void setDistanceListener(Context context) {
+        listener = (DistanceListener)context;
+    }
+
+    public interface DistanceListener {
+        void onDistanceReceived(int distance);
+    }
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -26,7 +35,20 @@ public class AmarinoReceiver extends BroadcastReceiver {
                 Toast.makeText(context, "Connection halted", Toast.LENGTH_LONG).show();
                 break;
             case AmarinoIntent.ACTION_RECEIVED:
-                Toast.makeText(context, "Data received", Toast.LENGTH_LONG).show();
+                int data;
+                final int dataType = intent.getIntExtra(AmarinoIntent.EXTRA_DATA_TYPE, -1);
+
+                if (dataType == AmarinoIntent.STRING_EXTRA) {
+                    try {
+                        data = Integer.parseInt(intent.getStringExtra(AmarinoIntent.EXTRA_DATA));
+                    } catch (Exception ex) {
+                        data = -1;
+                    }
+
+                    if (data > 0 && listener != null) {
+                        listener.onDistanceReceived(data);
+                    }
+                }
                 break;
         }
     }
