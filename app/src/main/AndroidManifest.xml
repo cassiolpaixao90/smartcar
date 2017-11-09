@@ -19,7 +19,6 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -27,7 +26,15 @@
         <receiver
             android:name=".broadcasts.AmarinoReceiver"
             android:enabled="true"
-            android:exported="false"></receiver>
+            android:exported="true">
+            <intent-filter>
+                <action android:name="amarino.intent.action.CONNECTED" />
+                <action android:name="amarino.intent.action.DISCONNECTED" />
+                <action android:name="amarino.intent.action.RECEIVED" />
+                <action android:name="amarino.intent.action.CONNECTION_FAILED" />
+                <action android:name="amarino.intent.action.COMMUNICATIONS_HALTED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

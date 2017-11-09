@@ -17,15 +17,6 @@
         android:layout_gravity="bottom"
         android:layout_marginBottom="12dp" />
 
-
-    <com.erz.joysticklibrary.JoyStick
-        android:id="@+id/joy2"
-        android:layout_width="264dp"
-        android:layout_height="226dp"
-        android:layout_gravity="bottom|right"
-        android:layout_marginBottom="12dp"
-        android:layout_marginLeft="50dp" />
-
     <Button
         android:id="@+id/btn_r1"
         android:layout_width="95dp"
@@ -33,10 +24,8 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/shape"
-        android:onClick="btnR1"
         android:text="@string/R1"
         android:textColor="@color/white" />
-
 
     <Button
         android:id="@+id/btn_l1"
@@ -45,9 +34,17 @@
         android:layout_marginLeft="520dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/shape"
-        android:onClick="btnL1"
         android:text="@string/L1"
         android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:backgroundTint="@color/white"
+        android:layout_width="190dp"
+        android:layout_height="160dp"
+        android:layout_marginLeft="255dp"
+        android:layout_marginTop="100dp"
+        android:text="Testando" />
 
     <Button
         android:id="@+id/btn_a"
@@ -56,7 +53,6 @@
         android:layout_marginLeft="355dp"
         android:layout_marginTop="153dp"
         android:background="@drawable/shape"
-        android:onClick="btnA"
         android:text="@string/A"
         android:textColor="@color/white" />
 
@@ -67,7 +63,6 @@
         android:layout_marginLeft="405dp"
         android:layout_marginTop="95dp"
         android:background="@drawable/shape"
-        android:onClick="btnB"
         android:text="@string/B"
         android:textColor="@color/white" />
 
@@ -79,7 +74,6 @@
         android:layout_marginLeft="475dp"
         android:layout_marginTop="75dp"
         android:background="@drawable/shape"
-        android:onClick="btnX"
         android:text="@string/X" />
 
     <Button
@@ -90,7 +84,6 @@
         android:layout_marginLeft="548dp"
         android:layout_marginTop="97dp"
         android:background="@drawable/shape"
-        android:onClick="btnY"
         android:text="@string/Y" />
 
     <Button
@@ -100,7 +93,14 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="270dp"
         android:layout_marginTop="0dp"
-        android:background="@drawable/shape"
-        android:onClick="btnPower" />
+        android:background="@drawable/shape" />
+
+    <com.erz.joysticklibrary.JoyStick
+        android:id="@+id/joy2"
+        android:layout_width="264dp"
+        android:layout_height="226dp"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="50dp" />
 
 </FrameLayout>
