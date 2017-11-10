@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import br.com.cesaredu.smartcar.broadcasts.AmarinoReceiver;
 import br.com.cesaredu.smartcar.utils.FlagsUtil;
-import br.com.cesaredu.smartcar.utils.JoyStick;
+import br.com.cesaredu.smartcar.views.JoyStick;
 
 import at.abraxas.amarino.Amarino;
 import br.com.cesaredu.smartcar.R;
@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity implements JoyStick.JoyStick
     private boolean togglePower = false;
     private int speed = 0;
     private int direction = -1;
-    private int servo_pos = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,9 +59,8 @@ public class MainActivity extends AppCompatActivity implements JoyStick.JoyStick
                 textView.setText("Velocidade: " + speed + "\nDirecao: " + direction);
                 break;
             case R.id.joy2:
-                servo_pos = speed;
-                textView.setText("Velocidade: " + speed);
                 Amarino.sendDataToArduino(getApplicationContext(), BLUETOOTH_MAC_ADDRESS, FlagsUtil.SERVO, speed);
+                textView.setText("Velocidade: " + speed);
                 break;
         }
     }

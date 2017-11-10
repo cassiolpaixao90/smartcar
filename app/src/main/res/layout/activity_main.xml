@@ -5,12 +5,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <br.com.cesaredu.smartcar.game.GameView
+    <br.com.cesaredu.smartcar.views.ControllerView
         android:id="@+id/game"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <br.com.cesaredu.smartcar.utils.JoyStick
+    <br.com.cesaredu.smartcar.views.JoyStick
         android:id="@+id/joy1"
         android:layout_width="254dp"
         android:layout_height="226dp"
@@ -95,7 +95,7 @@
         android:layout_marginTop="0dp"
         android:background="@drawable/shape" />
 
-    <br.com.cesaredu.smartcar.utils.JoyStick
+    <br.com.cesaredu.smartcar.views.JoyStick
         android:id="@+id/joy2"
         android:layout_width="264dp"
         android:layout_height="226dp"

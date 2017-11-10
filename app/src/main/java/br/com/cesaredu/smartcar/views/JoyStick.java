@@ -1,4 +1,4 @@
-package br.com.cesaredu.smartcar.utils;
+package br.com.cesaredu.smartcar.views;
 
 import android.content.Context;
 import android.content.res.TypedArray;
