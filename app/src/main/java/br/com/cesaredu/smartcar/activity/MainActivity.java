@@ -1,10 +1,15 @@
 package br.com.cesaredu.smartcar.activity;
 
+import android.annotation.SuppressLint;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import br.com.cesaredu.smartcar.broadcasts.AmarinoReceiver;
 import br.com.cesaredu.smartcar.utils.FlagsUtil;
@@ -28,13 +33,127 @@ public class MainActivity extends AppCompatActivity implements JoyStick.JoyStick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textView = (TextView) findViewById(R.id.textView);
-        findViewById(R.id.btn_a).setOnTouchListener(this);
-        findViewById(R.id.btn_b).setOnTouchListener(this);
-        findViewById(R.id.btn_l1).setOnTouchListener(this);
+        findViewById(R.id.btn_a).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (((ToggleButton) v).isChecked()) {
+                    findViewById(R.id.btn_a).setBackgroundResource(R.drawable.shapekeypress);
+                    @SuppressLint("WrongViewCast") GradientDrawable gd = (GradientDrawable) findViewById(R.id.btn_a).getBackground().getCurrent();
+                    gd.setColor(Color.parseColor("#191919"));
+                    gd.setCornerRadii(new float[]{100, 100, 100, 100, 100, 100, 100, 100});
+//                    gd.setStroke(2, Color.parseColor("#00FFFF"), 5, 6);
+
+                }else {
+                    findViewById(R.id.btn_a).setBackgroundResource(R.drawable.shape);
+                    @SuppressLint("WrongViewCast") GradientDrawable gd = (GradientDrawable) findViewById(R.id.btn_a).getBackground().getCurrent();
+                    gd.setColor(Color.parseColor("#000000"));
+                    gd.setCornerRadii(new float[]{100, 100, 100, 100, 100, 100, 100, 100});
+                }
+
+                return false;
+            }
+        });
+        findViewById(R.id.btn_b).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (((ToggleButton) v).isChecked()) {
+                    findViewById(R.id.btn_b).setBackgroundResource(R.drawable.shapekeypress);
+                    @SuppressLint("WrongViewCast") GradientDrawable gd = (GradientDrawable) findViewById(R.id.btn_b).getBackground().getCurrent();
+                    gd.setColor(Color.parseColor("#191919"));
+                    gd.setCornerRadii(new float[]{100, 100, 100, 100, 100, 100, 100, 100});
+//                    gd.setStroke(2, Color.parseColor("#00FFFF"), 5, 6);
+
+                }else {
+                    findViewById(R.id.btn_b).setBackgroundResource(R.drawable.shape);
+                    @SuppressLint("WrongViewCast") GradientDrawable gd = (GradientDrawable) findViewById(R.id.btn_b).getBackground().getCurrent();
+                    gd.setColor(Color.parseColor("#000000"));
+                    gd.setCornerRadii(new float[]{100, 100, 100, 100, 100, 100, 100, 100});
+                }
+
+                return false;
+            }
+        });
+        findViewById(R.id.btn_l1).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (((ToggleButton) v).isChecked()) {
+                    findViewById(R.id.btn_l1).setBackgroundResource(R.drawable.shapekeypress);
+                    @SuppressLint("WrongViewCast") GradientDrawable gd = (GradientDrawable) findViewById(R.id.btn_l1).getBackground().getCurrent();
+                    gd.setColor(Color.parseColor("#191919"));
+                    gd.setCornerRadii(new float[]{100, 100, 100, 100, 100, 100, 100, 100});
+//                    gd.setStroke(2, Color.parseColor("#00FFFF"), 5, 6);
+
+                }else {
+                    findViewById(R.id.btn_l1).setBackgroundResource(R.drawable.shape);
+                    @SuppressLint("WrongViewCast") GradientDrawable gd = (GradientDrawable) findViewById(R.id.btn_l1).getBackground().getCurrent();
+                    gd.setColor(Color.parseColor("#000000"));
+                    gd.setCornerRadii(new float[]{100, 100, 100, 100, 100, 100, 100, 100});
+                }
+
+                return false;
+            }
+        });
         findViewById(R.id.btn_power).setOnTouchListener(this);
-        findViewById(R.id.btn_r1).setOnTouchListener(this);
-        findViewById(R.id.btn_x).setOnTouchListener(this);
-        findViewById(R.id.btn_y).setOnTouchListener(this);
+        findViewById(R.id.btn_r1).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (((ToggleButton) v).isChecked()) {
+                    findViewById(R.id.btn_r1).setBackgroundResource(R.drawable.shapekeypress);
+                    @SuppressLint("WrongViewCast") GradientDrawable gd = (GradientDrawable) findViewById(R.id.btn_r1).getBackground().getCurrent();
+                    gd.setColor(Color.parseColor("#191919"));
+                    gd.setCornerRadii(new float[]{100, 100, 100, 100, 100, 100, 100, 100});
+//                    gd.setStroke(2, Color.parseColor("#00FFFF"), 5, 6);
+
+                }else {
+                    findViewById(R.id.btn_r1).setBackgroundResource(R.drawable.shape);
+                    @SuppressLint("WrongViewCast") GradientDrawable gd = (GradientDrawable) findViewById(R.id.btn_r1).getBackground().getCurrent();
+                    gd.setColor(Color.parseColor("#000000"));
+                    gd.setCornerRadii(new float[]{100, 100, 100, 100, 100, 100, 100, 100});
+                }
+
+                return false;
+            }
+        });
+        findViewById(R.id.btn_x).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (((ToggleButton) v).isChecked()) {
+                    findViewById(R.id.btn_x).setBackgroundResource(R.drawable.shapekeypress);
+                    @SuppressLint("WrongViewCast") GradientDrawable gd = (GradientDrawable) findViewById(R.id.btn_x).getBackground().getCurrent();
+                    gd.setColor(Color.parseColor("#191919"));
+                    gd.setCornerRadii(new float[]{100, 100, 100, 100, 100, 100, 100, 100});
+//                    gd.setStroke(2, Color.parseColor("#00FFFF"), 5, 6);
+
+                }else {
+                    findViewById(R.id.btn_l1).setBackgroundResource(R.drawable.shape);
+                    @SuppressLint("WrongViewCast") GradientDrawable gd = (GradientDrawable) findViewById(R.id.btn_x).getBackground().getCurrent();
+                    gd.setColor(Color.parseColor("#000000"));
+                    gd.setCornerRadii(new float[]{100, 100, 100, 100, 100, 100, 100, 100});
+                }
+
+                return false;
+            }
+        });
+        findViewById(R.id.btn_y).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (((ToggleButton) v).isChecked()) {
+                    findViewById(R.id.btn_y).setBackgroundResource(R.drawable.shapekeypress);
+                    @SuppressLint("WrongViewCast") GradientDrawable gd = (GradientDrawable) findViewById(R.id.btn_y).getBackground().getCurrent();
+                    gd.setColor(Color.parseColor("#191919"));
+                    gd.setCornerRadii(new float[]{100, 100, 100, 100, 100, 100, 100, 100});
+//                    gd.setStroke(2, Color.parseColor("#00FFFF"), 5, 6);
+
+                }else {
+                    findViewById(R.id.btn_y).setBackgroundResource(R.drawable.shape);
+                    @SuppressLint("WrongViewCast") GradientDrawable gd = (GradientDrawable) findViewById(R.id.btn_y).getBackground().getCurrent();
+                    gd.setColor(Color.parseColor("#000000"));
+                    gd.setCornerRadii(new float[]{100, 100, 100, 100, 100, 100, 100, 100});
+                }
+
+                return false;
+            }
+        });
         JoyStick joyMove = (JoyStick) findViewById(R.id.joy1);
         joyMove.setListener(this);
         joyMove.setPadBackground(R.drawable.pad);
@@ -128,5 +247,9 @@ public class MainActivity extends AppCompatActivity implements JoyStick.JoyStick
     protected void onDestroy() {
         Amarino.disconnect(getApplicationContext(), BLUETOOTH_MAC_ADDRESS);
         super.onDestroy();
+    }
+
+    private void DisplayToast(String msg) {
+        Toast.makeText(getBaseContext(), msg, Toast.LENGTH_SHORT).show();
     }
 }
