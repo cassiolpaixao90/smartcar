@@ -169,11 +169,17 @@ public class JoyStick extends View implements GestureDetector.OnGestureListener 
 
                 double angle = Math.atan2(centerY - posY, centerX - posX);
 
-                speed = new Double(255 * Math.sqrt((posX - centerX)
-                        * (posX - centerX) + (posY - centerY)
-                        * (posY - centerY)) / radius).intValue();
+                if (stayPut) {
+                    speed = Double.valueOf(posX - 325).intValue() * -1 * 180 / 254;
 
-                direction = calculateDirection(Math.toDegrees(angle));
+                    direction = -1;
+                } else {
+                    speed = Double.valueOf(255 * Math.sqrt((posX - centerX)
+                            * (posX - centerX) + (posY - centerY)
+                            * (posY - centerY)) / radius).intValue();
+
+                    direction = calculateDirection(Math.toDegrees(angle));
+                }
 
                 invalidate();
                 break;

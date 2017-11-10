@@ -57,9 +57,12 @@ public class MainActivity extends AppCompatActivity implements JoyStick.JoyStick
             case R.id.joy1:
                 this.speed = speed;
                 this.direction = direction;
+                textView.setText("Velocidade: " + speed + "\nDirecao: " + direction);
                 break;
             case R.id.joy2:
-                this.servo_pos = speed;
+                servo_pos = speed;
+                textView.setText("Velocidade: " + speed);
+                Amarino.sendDataToArduino(getApplicationContext(), BLUETOOTH_MAC_ADDRESS, FlagsUtil.SERVO, speed);
                 break;
         }
     }
@@ -108,9 +111,6 @@ public class MainActivity extends AppCompatActivity implements JoyStick.JoyStick
                     return true;
                 case R.id.btn_x:
                     Amarino.sendDataToArduino(getApplicationContext(), BLUETOOTH_MAC_ADDRESS, FlagsUtil.BUZ, 1);
-                    return true;
-                case R.id.btn_y:
-                    textView.setText("servo: " + this.servo_pos);
                     return true;
             }
         } else if (action == MotionEvent.ACTION_UP) {
