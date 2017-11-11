@@ -2,10 +2,4 @@
     <string name="app_name">SmartCar</string>
     <string name="disconnected">Disconnected</string>
     <string name="connecting">Connecting</string>
-    <string name="A">A</string>
-    <string name="B">B</string>
-    <string name="X">X</string>
-    <string name="Y">Y</string>
-    <string name="L1">L1</string>
-    <string name="R1">R1</string>
 </resources>

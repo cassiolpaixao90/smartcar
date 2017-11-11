@@ -8,110 +8,77 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <ToggleButton
+    <ImageButton
         android:id="@+id/btn_l1"
-        android:layout_width="95dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/shapekeypress"
-        android:text="@string/L1"
-        android:textColor="@color/white"
-        android:textOff="@string/L1"
-        android:textOn="@string/L1" />
+        android:layout_width="155dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="3dp"
+        android:background="@null"
+        android:src="@drawable/l1" />
 
-    <ToggleButton
+    <ImageButton
         android:id="@+id/btn_r1"
-        android:layout_width="95dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="520dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/shapekeypress"
-        android:text="@string/R1"
-        android:textColor="@color/white"
-        android:textOff="@string/R1"
-        android:textOn="@string/R1" />
+        android:layout_width="155dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="485dp"
+        android:layout_marginTop="3dp"
+        android:background="@null"
+        android:src="@drawable/r1" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="150dp"
+        android:layout_width="130dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="240dp"
-        android:layout_marginTop="60dp"
-        android:background="@color/white"
-        android:backgroundTint="@color/white"
-        android:text="Testando" />
-
-    <ToggleButton
-        android:id="@+id/btn_a"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginLeft="355dp"
-        android:layout_marginTop="153dp"
-        android:background="@drawable/shapekeypress"
-        android:text="@string/A"
-        android:textColor="@color/white"
-        android:textOff="@string/A"
-        android:textOn="@string/A" />
-
-    <Button
-        android:id="@+id/btn_b"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginLeft="405dp"
-        android:layout_marginTop="95dp"
-        android:background="@drawable/shapekeypress"
-        android:text="@string/B"
-        android:textColor="@color/white"
-        android:textOff="@string/B"
-        android:textOn="@string/B" />
-
-    <Button
-        android:id="@+id/btn_x"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginLeft="475dp"
-        android:layout_marginTop="75dp"
-        android:background="@drawable/shapekeypress"
-        android:text="@string/X"
-        android:textColor="@color/white"
-        android:textOff="@string/X"
-        android:textOn="@string/X" />
-
-    <Button
-        android:id="@+id/btn_y"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginLeft="548dp"
-        android:layout_marginTop="97dp"
-        android:background="@drawable/shapekeypress"
-        android:text="@string/Y"
-        android:textColor="@color/white"
-        android:textOff="@string/Y"
-        android:textOn="@string/Y" />
-
-    <Button
-        android:id="@+id/btn_power"
-        android:layout_width="155dp"
-        android:layout_height="46dp"
-        android:layout_marginLeft="241dp"
+        android:layout_marginStart="255dp"
         android:layout_marginTop="0dp"
-        android:background="@drawable/shapebtnpower"
-        android:shadowColor="#A8A8A8"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
-        android:text="power"
+        android:textColor="@color/white"
         android:textAlignment="center"
-        android:textColor="@color/white" />
+        android:textSize="13sp" />
+
+    <ImageButton
+        android:id="@+id/btn_b"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="393dp"
+        android:layout_marginTop="86dp"
+        android:background="@null"
+        android:src="@drawable/b" />
+
+    <ImageButton
+        android:id="@+id/btn_x"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="466dp"
+        android:layout_marginTop="65dp"
+        android:background="@null"
+        android:src="@drawable/x" />
+
+    <ImageButton
+        android:id="@+id/btn_y"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="538dp"
+        android:layout_marginTop="86dp"
+        android:background="@null"
+        android:src="@drawable/y" />
+
+    <ImageButton
+        android:id="@+id/btn_power"
+        android:layout_width="106dp"
+        android:layout_height="106dp"
+        android:layout_marginStart="265dp"
+        android:layout_marginTop="180dp"
+        android:background="@null"
+        android:src="@drawable/power_off" />
 
     <br.com.cesaredu.smartcar.views.JoyStick
         android:id="@+id/joy2"
         android:layout_width="264dp"
         android:layout_height="226dp"
-        android:layout_gravity="bottom|right"
+        android:layout_gravity="bottom|end"
         android:layout_marginBottom="12dp"
-        android:layout_marginLeft="50dp" />
+        android:layout_marginStart="50dp" />
 
     <br.com.cesaredu.smartcar.views.JoyStick
         android:id="@+id/joy1"
