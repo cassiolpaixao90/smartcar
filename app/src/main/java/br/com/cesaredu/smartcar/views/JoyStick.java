@@ -91,7 +91,7 @@ public class JoyStick extends View implements GestureDetector.OnGestureListener 
                 padColor = typedArray.getColor(R.styleable.JoyStick_padColor, Color.WHITE);
                 buttonColor = typedArray.getColor(R.styleable.JoyStick_buttonColor, Color.RED);
                 stayPut = typedArray.getBoolean(R.styleable.JoyStick_stayPut, false);
-                percentage = typedArray.getInt(R.styleable.JoyStick_percentage, 25);
+                percentage = typedArray.getInt(R.styleable.JoyStick_percentage, 30);
                 if (percentage > 50) percentage = 50;
                 if (percentage < 25) percentage = 25;
 
@@ -120,8 +120,8 @@ public class JoyStick extends View implements GestureDetector.OnGestureListener 
         float min = Math.min(width, height);
         posX = centerX;
         posY = centerY;
-        buttonRadius = (min / 2f * (percentage / 100f));
-        radius = (min / 2f * ((100f - percentage) / 100f));
+        buttonRadius = 60.8f;
+        radius = 127.125f;
     }
 
     @Override

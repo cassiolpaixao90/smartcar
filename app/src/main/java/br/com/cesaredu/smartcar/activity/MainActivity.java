@@ -9,7 +9,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import br.com.cesaredu.smartcar.broadcasts.AmarinoReceiver;
 import br.com.cesaredu.smartcar.utils.FlagsUtil;
@@ -24,8 +23,6 @@ import br.com.cesaredu.smartcar.R;
 public class MainActivity extends AppCompatActivity implements JoyStick.JoyStickListener, View.OnTouchListener, AmarinoReceiver.DistanceListener {
     public static final String BLUETOOTH_MAC_ADDRESS = "20:16:10:24:30:84";
     private TextView textView;
-    private Button r1;
-    private Button l1;
     private boolean togglePower = false;
     private boolean toggleR1 = false;
     private boolean toggleL1 = false;
@@ -39,11 +36,9 @@ public class MainActivity extends AppCompatActivity implements JoyStick.JoyStick
         textView = (TextView) findViewById(R.id.textView);
         findViewById(R.id.btn_a).setOnTouchListener(this);
         findViewById(R.id.btn_b).setOnTouchListener(this);
-        l1 = (Button) findViewById(R.id.btn_l1);
-        l1.setOnTouchListener(this);
+        findViewById(R.id.btn_l1).setOnTouchListener(this);
         findViewById(R.id.btn_power).setOnTouchListener(this);
-        r1 = (Button) findViewById(R.id.btn_r1);
-        r1.setOnTouchListener(this);
+        findViewById(R.id.btn_r1).setOnTouchListener(this);
         findViewById(R.id.btn_x).setOnTouchListener(this);
         findViewById(R.id.btn_y).setOnTouchListener(this);
         JoyStick joyMove = (JoyStick) findViewById(R.id.joy1);
@@ -115,6 +110,7 @@ public class MainActivity extends AppCompatActivity implements JoyStick.JoyStick
                 case R.id.btn_l1:
                     Amarino.sendDataToArduino(getApplicationContext(), BLUETOOTH_MAC_ADDRESS, FlagsUtil.LED_F, 1);
                     toggleL1 = !toggleL1;
+                    Button l1 = (Button) v;
                     if (toggleL1) {
                         l1.setBackgroundResource(R.drawable.shapekeypress);
                         @SuppressLint("WrongViewCast") GradientDrawable gd = (GradientDrawable) l1.getBackground().getCurrent();
@@ -130,6 +126,7 @@ public class MainActivity extends AppCompatActivity implements JoyStick.JoyStick
                 case R.id.btn_r1:
                     Amarino.sendDataToArduino(getApplicationContext(), BLUETOOTH_MAC_ADDRESS, FlagsUtil.LED_T, 1);
                     toggleR1 = !toggleR1;
+                    Button r1 = (Button) v;
                     if (toggleR1) {
                         r1.setBackgroundResource(R.drawable.shapekeypress);
                         @SuppressLint("WrongViewCast") GradientDrawable gd = (GradientDrawable) r1.getBackground().getCurrent();
@@ -163,9 +160,5 @@ public class MainActivity extends AppCompatActivity implements JoyStick.JoyStick
     protected void onDestroy() {
         Amarino.disconnect(getApplicationContext(), BLUETOOTH_MAC_ADDRESS);
         super.onDestroy();
-    }
-
-    private void DisplayToast(String msg) {
-        Toast.makeText(getBaseContext(), msg, Toast.LENGTH_SHORT).show();
     }
 }
